@@ -1,0 +1,34 @@
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/nav.ejs') %>
+
+    <div class="container">
+        <div class="blogs">
+            <h1> Blogs Page: </h1>
+                    <div class="blog">
+                            <h1> <%= blog.title %> </h1>
+                            <h3><%= blog.author %> </h3>
+                            <p> <%= blog.body %> </p>
+                            <input class="delete" type="button" value="Delete" name="<%= blog._id %>" >
+                    </div>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.querySelector('input.delete');
+
+        btn.addEventListener('click',(e) => {
+            const endpoint = `/blogs/${btn.name}`;
+            fetch(endpoint, {
+                method:"DELETE"
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                window.location.href = data.redirect
+                // res.render("/",{title: Home})
+            })
+            .catch(err => console.log(err));
+        });
+    </script>
+
+</body>
+</html>

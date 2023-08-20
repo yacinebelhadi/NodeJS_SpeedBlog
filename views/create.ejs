@@ -1,0 +1,29 @@
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/nav.ejs') %>
+
+    <div class="container">
+        <h1 class="title"> Create Blogs: </h1>
+            <form action="/blogs" class="creation" method="POST">
+                <div class="box">
+                    <div class="label-title">
+                        <label for="">Title</label>
+                    </div>
+                    <input type="text" id="title" name="title" placeholder="enter your blog title">
+                </div>
+                <div class="box">
+                    <div class="label-title">
+                        <label for="">author</label>
+                    </div>
+                    <input type="text" id="author" name="author" placeholder="enter your blog author">
+                </div>
+                <div class="box">
+                    <div class="label-title">
+                        <label for="">blog text</label>                        
+                    </div>
+                    <textarea name="body" id="blog-text" cols="40" rows="10" aria-valuetext="" placeholder="your blog text here"></textarea>
+                </div>
+                <input type="submit" value="Create" id="btn-create">
+        </div>
+    </div>
+</body>
+</html>

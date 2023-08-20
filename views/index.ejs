@@ -1,0 +1,24 @@
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/nav.ejs') %>
+
+    <div class="container">
+        <div class="blogs">
+            <h1> Blogs Page: </h1>
+            <% if (blogs.length > 0) { %>
+                <% blogs.forEach(blog => { %>
+                    <div class="blog">
+                        <a href="/blogs/<%= blog._id %>">
+                            <h1> <%= blog.title %> </h1>
+                            <h3><%= blog.author %> </h3>
+                        </a>
+                            <!-- <p> <%= blog.body %> </p> -->
+                            <!-- <input class="delete" type="button" value="Delete" name="<%= blog._id %>" > -->
+                        </div>
+            <%}) %>
+            <%} else { %>
+                <p> There are no blogs to display ...</p>
+            <%} %>
+        </div>
+    </div>
+</body>
+</html>
